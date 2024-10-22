@@ -14,6 +14,8 @@ service sat {
                 DocumentCurrency,
                 TaxReturnCountry,
                 VATRegistrationCountry
+    }actions {
+        action purchaseData() returns String;
     };
     entity PurchaseOrderItem as projection on purchaseapi.PurchaseOrderItem{
                 PurchaseOrder,
@@ -78,7 +80,7 @@ service sat {
                 ScheduleLineOrderDate,
     };
     entity POSubcontractingComponent as projection on purchaseapi.POSubcontractingComponent{
-                PurchaseOrder,
+                key PurchaseOrder,
                 PurchaseOrderItem,
                 ScheduleLine,
                 ReservationItem,
