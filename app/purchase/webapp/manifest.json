@@ -1,7 +1,7 @@
 {
   "_version": "1.59.0",
   "sap.app": {
-    "id": "project1",
+    "id": "purchase",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -61,7 +61,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "project1.i18n.i18n"
+          "bundleName": "purchase.i18n.i18n"
         }
       },
       "": {
@@ -102,7 +102,7 @@
           "name": "sap.fe.templates.ListReport",
           "options": {
             "settings": {
-              "initislLoad":true,
+              "initialLoad":true,
               "contextPath": "/PurchaseOrderSrv",
               "variantManagement": "Page",
               "navigation": {
@@ -119,11 +119,11 @@
                   },
                   "actions": {
                     "printForm": {
-                      "press": "project1.ext.printForm.printForm.printForm",
+                      "press": "purchase.ext.printForm.printForm.printForm",
                       "visible": true,
                       "enabled": true,
                       "requiresSelection": true,
-                      "text": "PRINTFORM"
+                      "text": "Fetch"
                     }
                   }
                 }

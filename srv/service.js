@@ -45,40 +45,26 @@ module.exports = cds.service.impl(async function () {
         const {PurchaseOrderSrv,PurchaseOrderItem,PurOrdItemPricingElement,POSubcontractingComponent,
             PurchaseOrderScheduleLine,PurchaseOrderAccountAssignment,PurchaseOrderItemNote
             ,PurchaseOrderNote,SupplierInfo}=this.entities
-        // console.log(req.params);
-        // console.log(req.data);
         
         const { PurchaseOrder } = req.params[0]; 
-        //console.log(PurchaseOrder);
 
         const rowData = await purchaseorderapi.run(SELECT.from(PurchaseOrderSrv).where({ PurchaseOrder: PurchaseOrder }));
-        //console.log("rowData:",rowData);
-
-        /* let query1 = SELECT.from(TransferPostingDocument).columns([{ref:['to_MaterialDocumentHeader'],expand:['*']}]).where({MaterialDocument: materialdocument});*/
 
         const SupplierInfor = await purchaseorderapi.run(SELECT.from(SupplierInfo).columns([{ref:['_SupplierAddress'],expand:['*']}]).where({ PurchaseOrder: PurchaseOrder }));
-        //console.log("SupplierInfo:",SupplierInfor);
 
         const PurchaseOrderitem=await purchaseorderapi.run(SELECT.from(PurchaseOrderItem).where({ PurchaseOrder: PurchaseOrder }));
-        //console.log("PurchaseOrderitem :",PurchaseOrderitem);
 
         const PricingElements=await purchaseorderapi.run(SELECT.from(PurOrdItemPricingElement).where({ PurchaseOrder: PurchaseOrder }));
-        //.log("PricingElements:",PricingElements);
 
         const ContractingComponent=await purchaseorderapi.run(SELECT.from(POSubcontractingComponent).where({ PurchaseOrder: PurchaseOrder }));
-        //console.log("ContractingComponent:",ContractingComponent);
 
         const ScheduleLine=await purchaseorderapi.run(SELECT.from(PurchaseOrderScheduleLine).where({ PurchaseOrder: PurchaseOrder }));
-        //console.log("ScheduleLine:",ScheduleLine);
 
         const AccountAssignment=await purchaseorderapi.run(SELECT.from(PurchaseOrderAccountAssignment).where({ PurchaseOrder: PurchaseOrder }));
-        //console.log("AccountAssignment: ",AccountAssignment);
 
         const ItemNote=await purchaseorderapi.run(SELECT.from(PurchaseOrderItemNote).where({ PurchaseOrder: PurchaseOrder }));
-        //console.log("ItemNote:",ItemNote);
 
         const OrderNote=await purchaseorderapi.run(SELECT.from(PurchaseOrderNote).where({ PurchaseOrder: PurchaseOrder }));
-        //console.log("OrderNote:",OrderNote);
         
         const structuredData = {
             PurchaseOrderNode: {
@@ -112,7 +98,6 @@ module.exports = cds.service.impl(async function () {
                 OrderNote
             }
         };
-        //console.log(structuredData);
         
         function ensureEmptyTags(obj) {
             if (Array.isArray(obj)) {
@@ -129,7 +114,6 @@ module.exports = cds.service.impl(async function () {
         const xml = create(updatedJsonData).end({ prettyPrint: true });
         console.log("Generated XML:", xml);
         const base64Xml = Buffer.from(xml).toString('base64');
-        //console.log("Base64 Encoded XML:", base64Xml);
         try {
             const authResponse = await axios.get('https://chembonddev.authentication.us10.hana.ondemand.com/oauth/token', {
                 params: {
@@ -141,7 +125,6 @@ module.exports = cds.service.impl(async function () {
                 }
             });
             const accessToken = authResponse.data.access_token;
-            //console.log("Access Token:", accessToken);
             const pdfResponse = await axios.post('https://adsrestapi-formsprocessing.cfapps.us10.hana.ondemand.com/v1/adsRender/pdf?templateSource=storageName', {
                 xdpTemplate: labelname,
                 xmlData: base64Xml, 
@@ -156,17 +139,13 @@ module.exports = cds.service.impl(async function () {
                 }
             });
             const fileContent = pdfResponse.data.fileContent;
-           // console.log("File Content:", fileContent);
             return fileContent;
   
         } catch (error) {
             console.error("Error occurred:", error);
             return req.error(500, "An error occurred while processing your request.");
         }
-     
-    
     });
-
     this.on('READ',Label,async(req)=>{
         let Label=[
             {"Label":"hemanth/Default"},
