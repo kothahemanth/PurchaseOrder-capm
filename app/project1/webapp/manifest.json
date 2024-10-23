@@ -1,7 +1,7 @@
 {
-  "_version": "1.65.0",
+  "_version": "1.59.0",
   "sap.app": {
-    "id": "purchase",
+    "id": "project1",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -12,12 +12,12 @@
     "resources": "resources.json",
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
-      "version": "1.15.1",
-      "toolsId": "64a2176e-6508-4f91-b700-b933e5328d36"
+      "version": "1.14.4",
+      "toolsId": "4b2482fa-9aba-4e5c-b4e6-86fbcb1aab9b"
     },
     "dataSources": {
       "mainService": {
-        "uri": "/odata/v4/sat/",
+        "uri": "/odata/v4/purchase-order/",
         "type": "OData",
         "settings": {
           "annotations": [],
@@ -49,6 +49,7 @@
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
+        "sap.ushell": {},
         "sap.fe.templates": {}
       }
     },
@@ -60,7 +61,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "purchase.i18n.i18n"
+          "bundleName": "project1.i18n.i18n"
         }
       },
       "": {
@@ -85,29 +86,29 @@
       "routes": [
         {
           "pattern": ":?query:",
-          "name": "PurchaseOrderList",
-          "target": "PurchaseOrderList"
+          "name": "PurchaseOrderSrvList",
+          "target": "PurchaseOrderSrvList"
         },
         {
-          "pattern": "PurchaseOrder({key}):?query:",
-          "name": "PurchaseOrderObjectPage",
-          "target": "PurchaseOrderObjectPage"
+          "pattern": "PurchaseOrderSrv({key}):?query:",
+          "name": "PurchaseOrderSrvObjectPage",
+          "target": "PurchaseOrderSrvObjectPage"
         }
       ],
       "targets": {
-        "PurchaseOrderList": {
+        "PurchaseOrderSrvList": {
           "type": "Component",
-          "id": "PurchaseOrderList",
+          "id": "PurchaseOrderSrvList",
           "name": "sap.fe.templates.ListReport",
           "options": {
             "settings": {
-              "contextPath": "/PurchaseOrder",
-              "initialLoad": "Enabled",
+              "initislLoad":true,
+              "contextPath": "/PurchaseOrderSrv",
               "variantManagement": "Page",
               "navigation": {
-                "PurchaseOrder": {
+                "PurchaseOrderSrv": {
                   "detail": {
-                    "route": "PurchaseOrderObjectPage"
+                    "route": "PurchaseOrderSrvObjectPage"
                   }
                 }
               },
@@ -117,12 +118,12 @@
                     "type": "ResponsiveTable"
                   },
                   "actions": {
-                    "form": {
-                      "press": "purchase.ext.form.form.fetch",
+                    "printForm": {
+                      "press": "project1.ext.printForm.printForm.printForm",
                       "visible": true,
                       "enabled": true,
                       "requiresSelection": true,
-                      "text": "Fetch"
+                      "text": "PRINTFORM"
                     }
                   }
                 }
@@ -130,14 +131,14 @@
             }
           }
         },
-        "PurchaseOrderObjectPage": {
+        "PurchaseOrderSrvObjectPage": {
           "type": "Component",
-          "id": "PurchaseOrderObjectPage",
+          "id": "PurchaseOrderSrvObjectPage",
           "name": "sap.fe.templates.ObjectPage",
           "options": {
             "settings": {
               "editableHeaderContent": false,
-              "contextPath": "/PurchaseOrder"
+              "contextPath": "/PurchaseOrderSrv"
             }
           }
         }

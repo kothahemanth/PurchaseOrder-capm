@@ -1,6 +1,6 @@
 {
  "meta": {
-  "creator": "cds-dk 8.3.0"
+  "creator": "cds-dk 7.5.1"
  },
  "$version": "2.0",
  "definitions": {
@@ -621,14 +621,29 @@
     },
     "_PurchaseOrder": {
      "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrder",
      "cardinality": {
       "max": 1
      },
-     "keys": []
+     "on": [
+      {
+       "ref": [
+        "_PurchaseOrder",
+        "PurchaseOrder"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "PurchaseOrder"
+       ]
+      }
+     ]
     },
     "_PurchaseOrderItem": {
      "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrderItem",
      "cardinality": {
       "max": 1
@@ -637,11 +652,25 @@
     },
     "_ScheduleLine": {
      "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrderScheduleLine",
      "cardinality": {
       "max": 1
      },
-     "keys": []
+     "on": [
+      {
+       "ref": [
+        "_ScheduleLine",
+        "ScheduleLine"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "ScheduleLine"
+       ]
+      }
+     ]
     }
    },
    "@Common.Label": "Subcontracting Components",
@@ -1283,38 +1312,38 @@
     },
     "_PurchaseOrderItem": {
      "type": "cds.Composition",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrderItem",
      "cardinality": {
       "max": "*"
      },
-     "keys": [],
      "@Common.Composition": true
     },
     "_PurchaseOrderNote": {
      "type": "cds.Composition",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrderNote",
      "cardinality": {
       "max": "*"
      },
-     "keys": [],
      "@Common.Composition": true
     },
     "_PurchaseOrderPartner": {
      "type": "cds.Composition",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrderPartner",
      "cardinality": {
       "max": "*"
      },
-     "keys": [],
      "@Common.Composition": true
     },
     "_SupplierAddress": {
      "type": "cds.Composition",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrderSupplierAddress",
      "cardinality": {
       "max": 1
      },
-     "keys": [],
      "@Common.Composition": true
     }
    },
@@ -1862,19 +1891,47 @@
     },
     "_PurchaseOrder": {
      "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrder",
      "cardinality": {
       "max": 1
      },
-     "keys": []
+     "on": [
+      {
+       "ref": [
+        "_PurchaseOrder",
+        "PurchaseOrder"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "PurchaseOrder"
+       ]
+      }
+     ]
     },
     "_PurchaseOrderItem": {
      "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrderItem",
      "cardinality": {
       "max": 1
      },
-     "keys": []
+     "on": [
+      {
+       "ref": [
+        "_PurchaseOrderItem",
+        "PurchaseOrderItem"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "PurchaseOrderItem"
+       ]
+      }
+     ]
     }
    },
    "@Common.Label": "Account Assignment",
@@ -2018,28 +2075,56 @@
     },
     "_POInvoicingPlanItem": {
      "type": "cds.Composition",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrderInvoicingPlanItem",
      "cardinality": {
       "max": "*"
      },
-     "keys": [],
      "@Common.Composition": true
     },
     "_PurchaseOrder": {
      "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrder",
      "cardinality": {
       "max": 1
      },
-     "keys": []
+     "on": [
+      {
+       "ref": [
+        "_PurchaseOrder",
+        "PurchaseOrder"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "PurchaseOrder"
+       ]
+      }
+     ]
     },
     "_PurchaseOrderItem": {
      "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrderItem",
      "cardinality": {
       "max": 1
      },
-     "keys": []
+     "on": [
+      {
+       "ref": [
+        "_PurchaseOrderItem",
+        "PurchaseOrderItem"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "PurchaseOrderItem"
+       ]
+      }
+     ]
     }
    },
    "@Common.Label": "Invoicing Plan",
@@ -2190,22 +2275,51 @@
     },
     "_PurchaseOrder": {
      "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrder",
      "cardinality": {
       "max": 1
      },
-     "keys": []
+     "on": [
+      {
+       "ref": [
+        "_PurchaseOrder",
+        "PurchaseOrder"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "PurchaseOrder"
+       ]
+      }
+     ]
     },
     "_PurchaseOrderInvoicingPlan": {
      "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrderInvoicingPlan",
      "cardinality": {
       "max": 1
      },
-     "keys": []
+     "on": [
+      {
+       "ref": [
+        "_PurchaseOrderInvoicingPlan",
+        "InvoicingPlan"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "InvoicingPlan"
+       ]
+      }
+     ]
     },
     "_PurchaseOrderItem": {
      "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrderItem",
      "cardinality": {
       "max": 1
@@ -3612,64 +3726,78 @@
     },
     "_DeliveryAddress": {
      "type": "cds.Composition",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurOrderItemDeliveryAddress",
      "cardinality": {
       "max": 1
      },
-     "keys": [],
      "@Common.Composition": true
     },
     "_PurchaseOrder": {
      "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrder",
      "cardinality": {
       "max": 1
      },
-     "keys": []
+     "on": [
+      {
+       "ref": [
+        "_PurchaseOrder",
+        "PurchaseOrder"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "PurchaseOrder"
+       ]
+      }
+     ]
     },
     "_PurchaseOrderInvoicingPlan": {
      "type": "cds.Composition",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrderInvoicingPlan",
      "cardinality": {
       "max": "*"
      },
-     "keys": [],
      "@Common.Composition": true
     },
     "_PurchaseOrderItemNote": {
      "type": "cds.Composition",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrderItemNote",
      "cardinality": {
       "max": "*"
      },
-     "keys": [],
      "@Common.Composition": true
     },
     "_PurchaseOrderScheduleLineTP": {
      "type": "cds.Composition",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrderScheduleLine",
      "cardinality": {
       "max": "*"
      },
-     "keys": [],
      "@Common.Composition": true
     },
     "_PurOrdAccountAssignment": {
      "type": "cds.Composition",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrderAccountAssignment",
      "cardinality": {
       "max": "*"
      },
-     "keys": [],
      "@Common.Composition": true
     },
     "_PurOrdPricingElement": {
      "type": "cds.Composition",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurOrderItemPricingElement",
      "cardinality": {
       "max": "*"
      },
-     "keys": [],
      "@Common.Composition": true
     }
    },
@@ -3924,19 +4052,47 @@
     },
     "_PurchaseOrder": {
      "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrder",
      "cardinality": {
       "max": 1
      },
-     "keys": []
+     "on": [
+      {
+       "ref": [
+        "_PurchaseOrder",
+        "PurchaseOrder"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "PurchaseOrder"
+       ]
+      }
+     ]
     },
     "_PurchaseOrderItem": {
      "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrderItem",
      "cardinality": {
       "max": 1
      },
-     "keys": []
+     "on": [
+      {
+       "ref": [
+        "_PurchaseOrderItem",
+        "PurchaseOrderItem"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "PurchaseOrderItem"
+       ]
+      }
+     ]
     }
    },
    "@Common.Label": "Item Notes",
@@ -4004,11 +4160,25 @@
     },
     "_PurchaseOrder": {
      "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrder",
      "cardinality": {
       "max": 1
      },
-     "keys": []
+     "on": [
+      {
+       "ref": [
+        "_PurchaseOrder",
+        "PurchaseOrder"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "PurchaseOrder"
+       ]
+      }
+     ]
     }
    },
    "@Common.Label": "Header Notes",
@@ -4164,11 +4334,25 @@
     },
     "_PurchaseOrderTP": {
      "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrder",
      "cardinality": {
       "max": 1
      },
-     "keys": []
+     "on": [
+      {
+       "ref": [
+        "_PurchaseOrderTP",
+        "PurchaseOrder"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "PurchaseOrder"
+       ]
+      }
+     ]
     }
    },
    "@Common.Label": "Partner",
@@ -4401,27 +4585,55 @@
     },
     "_PurchaseOrder": {
      "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrder",
      "cardinality": {
       "max": 1
      },
-     "keys": []
+     "on": [
+      {
+       "ref": [
+        "_PurchaseOrder",
+        "PurchaseOrder"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "PurchaseOrder"
+       ]
+      }
+     ]
     },
     "_PurchaseOrderItem": {
      "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrderItem",
      "cardinality": {
       "max": 1
      },
-     "keys": []
+     "on": [
+      {
+       "ref": [
+        "_PurchaseOrderItem",
+        "PurchaseOrderItem"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "PurchaseOrderItem"
+       ]
+      }
+     ]
     },
     "_SubcontractingComponent": {
      "type": "cds.Composition",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.POSubcontractingComponent",
      "cardinality": {
       "max": "*"
      },
-     "keys": [],
      "@Common.Composition": true
     }
    },
@@ -4832,11 +5044,25 @@
     },
     "_PurchaseOrderTP": {
      "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrder",
      "cardinality": {
       "max": 1
      },
-     "keys": []
+     "on": [
+      {
+       "ref": [
+        "_PurchaseOrderTP",
+        "PurchaseOrder"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "PurchaseOrder"
+       ]
+      }
+     ]
     }
    },
    "@Common.Label": "Supplier Address",
@@ -5239,19 +5465,47 @@
     },
     "_PurchaseOrder": {
      "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrder",
      "cardinality": {
       "max": 1
      },
-     "keys": []
+     "on": [
+      {
+       "ref": [
+        "_PurchaseOrder",
+        "PurchaseOrder"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "PurchaseOrder"
+       ]
+      }
+     ]
     },
     "_PurchaseOrderItem": {
      "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrderItem",
      "cardinality": {
       "max": 1
      },
-     "keys": []
+     "on": [
+      {
+       "ref": [
+        "_PurchaseOrderItem",
+        "PurchaseOrderItem"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "PurchaseOrderItem"
+       ]
+      }
+     ]
     }
    },
    "@Common.Label": "Item Delivery Address",
@@ -5993,19 +6247,47 @@
     },
     "_PurchaseOrder": {
      "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrder",
      "cardinality": {
       "max": 1
      },
-     "keys": []
+     "on": [
+      {
+       "ref": [
+        "_PurchaseOrder",
+        "PurchaseOrder"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "PurchaseOrder"
+       ]
+      }
+     ]
     },
     "_PurchaseOrderItem": {
      "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
      "target": "CE_PURCHASEORDER_0001.PurchaseOrderItem",
      "cardinality": {
       "max": 1
      },
-     "keys": []
+     "on": [
+      {
+       "ref": [
+        "_PurchaseOrderItem",
+        "PurchaseOrderItem"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "PurchaseOrderItem"
+       ]
+      }
+     ]
     }
    },
    "@Common.Label": "Pricing Element",

@@ -10,7 +10,7 @@ sap.ui.define([
             opaTest("Start application", function (Given, When, Then) {
                 Given.iStartMyApp();
 
-                Then.onThePurchaseOrderList.iSeeThisPage();
+                Then.onThePurchaseOrderSrvList.iSeeThisPage();
 
             });
 
@@ -18,12 +18,12 @@ sap.ui.define([
             opaTest("Navigate to ObjectPage", function (Given, When, Then) {
                 // Note: this test will fail if the ListReport page doesn't show any data
                 
-                When.onThePurchaseOrderList.onFilterBar().iExecuteSearch();
+                When.onThePurchaseOrderSrvList.onFilterBar().iExecuteSearch();
                 
-                Then.onThePurchaseOrderList.onTable().iCheckRows();
+                Then.onThePurchaseOrderSrvList.onTable().iCheckRows();
 
-                When.onThePurchaseOrderList.onTable().iPressRow(0);
-                Then.onThePurchaseOrderObjectPage.iSeeThisPage();
+                When.onThePurchaseOrderSrvList.onTable().iPressRow(0);
+                Then.onThePurchaseOrderSrvObjectPage.iSeeThisPage();
 
             });
 

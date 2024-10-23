@@ -1,5 +1,5 @@
-using sat as service from '../../srv/service';
-annotate service.PurchaseOrder with @(
+using PurchaseOrderService as service from '../../srv/service';
+annotate service.PurchaseOrderSrv with @(
     UI.FieldGroup #GeneratedGroup : {
         $Type : 'UI.FieldGroupType',
         Data : [
@@ -10,18 +10,13 @@ annotate service.PurchaseOrder with @(
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'PurchasingDocumentOrigin',
-                Value : PurchasingDocumentOrigin,
-            },
-            {
-                $Type : 'UI.DataField',
-                Label : 'PurchaseOrderDate',
-                Value : PurchaseOrderDate,
-            },
-            {
-                $Type : 'UI.DataField',
                 Label : 'Language',
                 Value : Language,
+            },
+            {
+                $Type : 'UI.DataField',
+                Label : 'Company',
+                Value : Company,
             },
             {
                 $Type : 'UI.DataField',
@@ -30,8 +25,23 @@ annotate service.PurchaseOrder with @(
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'PurchasingOrganization',
-                Value : PurchasingOrganization,
+                Label : 'PaymentTerms',
+                Value : PaymentTerms,
+            },
+            {
+                $Type : 'UI.DataField',
+                Label : 'PurchaseOrderDate',
+                Value : PurchaseOrderDate,
+            },
+            {
+                $Type : 'UI.DataField',
+                Label : 'CountryRegOfSalesTaxIDNumber',
+                Value : CountryRegOfSalesTaxIDNumber,
+            },
+            {
+                $Type : 'UI.DataField',
+                Label : 'Currency',
+                Value : Currency,
             },
             {
                 $Type : 'UI.DataField',
@@ -40,18 +50,8 @@ annotate service.PurchaseOrder with @(
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'DocumentCurrency',
-                Value : DocumentCurrency,
-            },
-            {
-                $Type : 'UI.DataField',
-                Label : 'TaxReturnCountry',
-                Value : TaxReturnCountry,
-            },
-            {
-                $Type : 'UI.DataField',
-                Label : 'VATRegistrationCountry',
-                Value : VATRegistrationCountry,
+                Label : 'SupplierAddressID',
+                Value : SupplierAddressID,
             },
         ],
     },
@@ -71,23 +71,23 @@ annotate service.PurchaseOrder with @(
         },
         {
             $Type : 'UI.DataField',
-            Label : 'PurchasingDocumentOrigin',
-            Value : PurchasingDocumentOrigin,
-        },
-        {
-            $Type : 'UI.DataField',
-            Label : 'PurchaseOrderDate',
-            Value : PurchaseOrderDate,
-        },
-        {
-            $Type : 'UI.DataField',
             Label : 'Language',
             Value : Language,
         },
         {
             $Type : 'UI.DataField',
+            Label : 'Company',
+            Value : Company,
+        },
+        {
+            $Type : 'UI.DataField',
             Label : 'CompanyCode',
             Value : CompanyCode,
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'PaymentTerms',
+            Value : PaymentTerms,
         },
     ],
 );

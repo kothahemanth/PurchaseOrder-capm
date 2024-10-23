@@ -1,11 +1,15 @@
-namespace com.hemanth.satinfotech;
+namespace com.satinfotech.purchaseform;
+using {managed,cuid} from '@sap/cds/common';
 
-entity Purchase {
-    key PurchaseOrder                    : String(10);
-    PurchaseOrderType                   : String(2);
-    PurchaseOrderSubtype                : String(2);
-    PurchasingDocumentOrigin            : String(2);
-    PurchasingDocumentProcessCode       : String(2);
-    Language                            : String(2);
+// entity PurchaseOrder : cuid,managed {
+    
+    
+// }
+
+@cds.persistence.skip
+entity Label {
+
+      @title: 'Label'
+      Label : String(80);
+
 }
-

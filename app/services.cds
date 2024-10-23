@@ -1,2 +1,2 @@
 
-using from './purchase/annotations';
+using from './project1/annotations';
