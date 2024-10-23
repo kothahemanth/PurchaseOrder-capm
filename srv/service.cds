@@ -1,4 +1,5 @@
 using { CE_PURCHASEORDER_0001 as purchaseorderapi } from './external/CE_PURCHASEORDER_0001';
+using { API_BUSINESS_PARTNER as businessapi } from './external/API_BUSINESS_PARTNER';
 using {com.satinfotech.purchaseform as purchaseform} from '../db/schema';
 service PurchaseOrderService {
     entity PurchaseOrderSrv as projection on purchaseorderapi.PurchaseOrder {

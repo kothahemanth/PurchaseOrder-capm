@@ -3,6 +3,7 @@ const { create } = require('xmlbuilder2');
 const axios = require('axios');
 module.exports = cds.service.impl(async function () {
     const purchaseorderapi = await cds.connect.to('CE_PURCHASEORDER_0001');
+    const businessapi = await cds.connect.to('API_BUSINESS_PARTNER');
 
     this.on('READ', 'PurchaseOrderSrv', async (req) => {
         return await purchaseorderapi.run(req.query);
