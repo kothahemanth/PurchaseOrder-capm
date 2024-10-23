@@ -52,7 +52,7 @@ module.exports = cds.service.impl(async function () {
                 );
 
                 for (const item of items) {
-                    const [pricingElements, itemNotes, accountAssignments] = await Promise.all([
+                    const [pricingElements, itemNotes, scheduleLines, accountAssignments] = await Promise.all([
                         purchaseapi.run(
                             SELECT.from('PurOrderItemPricingElement')
                                 .where({
@@ -77,6 +77,26 @@ module.exports = cds.service.impl(async function () {
                                 .columns('PurchaseOrder', 'PurchaseOrderItem', 'PlainLongText')
                         ),
                         purchaseapi.run(
+                            SELECT.from('PurchaseOrderScheduleLine')
+                                .where({
+                                    PurchaseOrder: item.PurchaseOrder,
+                                    PurchaseOrderItem: item.PurchaseOrderItem
+                                })
+                                .columns(
+                                    'PurchaseOrder',
+                                    'PurchaseOrderItem',
+                                    'ScheduleLine',
+                                    'ScheduleLineDeliveryDate',
+                                    'SchedLineStscDeliveryDate',
+                                    'PurchaseOrderQuantityUnit',
+                                    'Currency',
+                                    'PurchaseRequisition',
+                                    'PurchaseRequisitionItem',
+                                    'DelivDateCategory',
+                                    'ScheduleLineOrderDate'
+                                )
+                        ),
+                        purchaseapi.run(
                             SELECT.from('PurchaseOrderAccountAssignment')
                                 .where({
                                     PurchaseOrder: item.PurchaseOrder,
@@ -94,6 +114,7 @@ module.exports = cds.service.impl(async function () {
 
                     item.PurOrderItemPricingElement = pricingElements;
                     item.PurchaseOrderItemNote = itemNotes;
+                    item.PurchaseOrderScheduleLine = scheduleLines;
                     item.PurchaseOrderAccountAssignment = accountAssignments;
                 }
 
