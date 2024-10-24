@@ -83,6 +83,10 @@ service PurchaseOrderService {
             Currency,
             ScheduleLineOrderDate
     };
+
+    entity SupplierTax as projection on businessapi.A_Supplier{
+            TaxNumber3      
+    }
     entity PurchaseOrderAccountAssignment as projection on purchaseorderapi.PurchaseOrderAccountAssignment{
             PurchaseOrder,
             PurchaseOrderItem,
